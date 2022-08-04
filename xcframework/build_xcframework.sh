@@ -11,7 +11,7 @@ Configuration="Debug"
 # 项目所在的文件
 PROJECT_DIR=$PWD
 # 创建产物文件夹，文件夹名与库名一致，方便生成使用
-INSTALL_DIR="${HOME}/Desktop/XCFrameworkSpace"
+INSTALL_DIR=${HOME}/Desktop/XCFrameworkSpace
 # podspec文件路径
 PODSPEC_FILE="$PWD/${SCHEME_NAME}.podspec"
 
@@ -120,12 +120,12 @@ echo '结束合成xcframework'
 # 移除临时文件夹
 rm -rf "${TEMP_FRAMEWORK_DIR}"
 
-total_endTime_s=`date +%s`
-echo '==================end================'
-echo "总共时长：$[$total_endTime_s - $total_startTime_s]"
-
 # 复制podspec文件
 cp -rf ${PODSPEC_FILE} ${EXPORT_FOLDER_PATH}
 echo "结束Podspec复制"
+
+total_endTime_s=`date +%s`
+echo '==================end================'
+echo "总共时长：$[$total_endTime_s - $total_startTime_s]"
 
 open "${EXPORT_FOLDER_PATH}"
